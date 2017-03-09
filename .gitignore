@@ -1,0 +1,9 @@
+libraries
+node_modules
+dist
+.tmp
+copy
+bower_components
+TiltCount_MMA8452Q
+TiltCount_MMA8452Qv2
+TiltCount_MMA8452Qv3
