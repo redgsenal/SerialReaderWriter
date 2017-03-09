@@ -12,17 +12,18 @@ void setup() {
 // COM8
 void loop() { // run over and over
   int byteCnt = mySerial.available();
+  Serial.println(byteCnt);
   if (byteCnt > 0) {
-    Serial.println("byte available");
-    Serial.println(byteCnt);
-    for(int b = 0; b < byteCnt; b++){
-      char c = mySerial.read();
-      readString += c;      
+    char c = mySerial.read();
+    Serial.println(c);
+    while(c != '\n'){
+      readString += c;
+      c = mySerial.read();
     }
-  }  
+  } 
   if (readString.length() > 0 && readString.length() >= byteCnt){
-    Serial.println(readString); 
-    readString = "";
+    Serial.println(readString);
   }
-  //delay(100);
+  readString = "";
+  delay(100);
 }
